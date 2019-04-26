@@ -11,6 +11,8 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.14.2",
+        "laravel/framework": "5.7.*|5.8.*",
+        "orchestra/testbench": "^3.8.2",
         "phpunit/phpunit": "^7.0|^8.0"
     },
     "autoload": {
