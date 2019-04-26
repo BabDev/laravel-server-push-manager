@@ -34,8 +34,10 @@ final class PushManager
      * @param string $uri        The relation URI
      * @param string $rel        The relation type (e.g. "preload", "prefetch", "prerender" or "dns-prefetch")
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function link(string $uri, string $rel, array $attributes = []): void
+    public function link(string $uri, string $rel, array $attributes = []): string
     {
         $link = new Link($rel, $uri);
 
@@ -44,6 +46,8 @@ final class PushManager
         }
 
         $this->setLinkProvider($this->getLinkProvider()->withLink($link));
+
+        return $uri;
     }
 
     /**
@@ -51,10 +55,12 @@ final class PushManager
      *
      * @param string $uri        The relation URI
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('crossorigin' => 'use-credentials')")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function preload(string $uri, array $attributes = []): void
+    public function preload(string $uri, array $attributes = []): string
     {
-        $this->link($uri, 'preload', $attributes);
+        return $this->link($uri, 'preload', $attributes);
     }
 
     /**
@@ -62,10 +68,12 @@ final class PushManager
      *
      * @param string $uri        The relation URI
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function dnsPrefetch(string $uri, array $attributes = []): void
+    public function dnsPrefetch(string $uri, array $attributes = []): string
     {
-        $this->link($uri, 'dns-prefetch', $attributes);
+        return $this->link($uri, 'dns-prefetch', $attributes);
     }
 
     /**
@@ -73,10 +81,12 @@ final class PushManager
      *
      * @param string $uri        The relation URI
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function preconnect(string $uri, array $attributes = []): void
+    public function preconnect(string $uri, array $attributes = []): string
     {
-        $this->link($uri, 'preconnect', $attributes);
+        return $this->link($uri, 'preconnect', $attributes);
     }
 
     /**
@@ -84,10 +94,12 @@ final class PushManager
      *
      * @param string $uri        The relation URI
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function prefetch(string $uri, array $attributes = []): void
+    public function prefetch(string $uri, array $attributes = []): string
     {
-        $this->link($uri, 'prefetch', $attributes);
+        return $this->link($uri, 'prefetch', $attributes);
     }
 
     /**
@@ -95,9 +107,11 @@ final class PushManager
      *
      * @param string $uri        The relation URI
      * @param array  $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
+     *
+     * @return string The `$uri` originally passed into this method
      */
-    public function prerender(string $uri, array $attributes = []): void
+    public function prerender(string $uri, array $attributes = []): string
     {
-        $this->link($uri, 'prerender', $attributes);
+        return $this->link($uri, 'prerender', $attributes);
     }
 }

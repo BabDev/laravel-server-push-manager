@@ -8,12 +8,12 @@ use Psr\Link\EvolvableLinkProviderInterface;
 /**
  * @method static EvolvableLinkProviderInterface getLinkProvider()
  * @method static void setLinkProvider(EvolvableLinkProviderInterface $linkProvider)
- * @method static void link(string $uri, string $rel, array $attributes = [])
- * @method static void preload(string $uri, array $attributes = [])
- * @method static void dnsPrefetch(string $uri, array $attributes = [])
- * @method static void preconnect(string $uri, array $attributes = [])
- * @method static void prefetch(string $uri, array $attributes = [])
- * @method static void prerender(string $uri, array $attributes = [])
+ * @method static string link(string $uri, string $rel, array $attributes = [])
+ * @method static string preload(string $uri, array $attributes = [])
+ * @method static string dnsPrefetch(string $uri, array $attributes = [])
+ * @method static string preconnect(string $uri, array $attributes = [])
+ * @method static string prefetch(string $uri, array $attributes = [])
+ * @method static string prerender(string $uri, array $attributes = [])
  *
  * @see \BabDev\ServerPushManager\PushManager
  */
