@@ -36,7 +36,10 @@
         "laravel": {
             "providers": [
                 "BabDev\\ServerPushManager\\ServerPushManagerServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "PushManager": "BabDev\\ServerPushManager\\PushManagerFacade"
+            }
         }
     }
 }
