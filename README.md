@@ -41,8 +41,8 @@ protected $middlewareGroups = [
 You can specify which assets should have a server push directive directly within your Blade templates by calling the `PushManager` service. Because the `PushManager` returns the original URI, you can wrap calls to `asset()` or `mix()` with a call to the manager. Note, the below example requires the `PushManagerFacade` have been registered in your application.
 
 ```php
-<link href="{{ PushManager::preload(mix('css/app.css')) }}" rel="stylesheet">
-<script src="{{ PushManager::preload(asset('js/app.js')) }}"></script>
+<link href="{{ PushManager::preload(mix('css/app.css'), ['as' => 'stylesheet']) }}" rel="stylesheet">
+<script src="{{ PushManager::preload(asset('js/app.js'), ['as' => 'script']) }}"></script>
 ```
 
 ### Within PHP classes
@@ -66,24 +66,24 @@ class MyController extends Controller;
 
     public function myConstructorAction()
     {
-        $this->pushManager->preload('https://laravel.com/assets/css/laravel.css');
+        $this->pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
     }
 
     public function myInjectedAction(Request $request, PushManager $pushManager)
     {
-        $pushManager->preload('https://laravel.com/assets/css/laravel.css');
+        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
     }
 
     public function myAppAction()
     {
         /** @var PushManager $pushManager */
         $pushManager = app('babdev.push_manager');
-        $pushManager->preload('https://laravel.com/assets/css/laravel.css');
+        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
     }
 
     public function myFacadeAction()
     {
-        \PushManager::preload('https://laravel.com/assets/css/laravel.css');
+        \PushManager::preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
     }
 }
 ```
