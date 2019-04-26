@@ -22,6 +22,18 @@ Likewise, you will also need to register the facade in your `config/app.php` fil
 'PushManager' => BabDev\ServerPushManager\PushManagerFacade::class,
 ``` 
 
+To send the header, you will need to register `BabDev\ServerPushManager\ServerPushMiddleware` as a middleware in your kernel. It is recommended to add it to only groups which handle web traffic with pushed assets, such as the default "web" group:
+
+```php
+// app/Http/Kernel.php
+
+protected $middlewareGroups = [
+    'web' => [
+        \BabDev\ServerPushManager\ServerPushMiddleware::class,
+    ],
+];
+```
+
 ## Usage
 
 ### Within Blade Templates
@@ -30,7 +42,7 @@ You can specify which assets should have a server push directive directly within
 
 ```php
 <link href="{{ PushManager::preload(mix('css/app.css')) }}" rel="stylesheet">
-<script src="{{ PushManager::preload(mix('js/app.js')) }}"></script>
+<script src="{{ PushManager::preload(asset('js/app.js')) }}"></script>
 ```
 
 ### Within PHP classes
