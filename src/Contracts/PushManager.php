@@ -1,33 +1,17 @@
 <?php
 
-namespace BabDev\ServerPushManager;
+namespace BabDev\ServerPushManager\Contracts;
 
-use BabDev\ServerPushManager\Contracts\PushManager as PushManagerContract;
-use Fig\Link\GenericLinkProvider;
-use Fig\Link\Link;
 use Psr\Link\EvolvableLinkProviderInterface;
 
-final class PushManager implements PushManagerContract
+interface PushManager
 {
-    /**
-     * @var EvolvableLinkProviderInterface
-     */
-    private $linkProvider;
-
-    public function __construct(?EvolvableLinkProviderInterface $linkProvider = null)
-    {
-        $this->linkProvider = $linkProvider ?: new GenericLinkProvider();
-    }
-
     /**
      * Retreive the link provider for the manager.
      *
      * @return EvolvableLinkProviderInterface
      */
-    public function getLinkProvider(): EvolvableLinkProviderInterface
-    {
-        return $this->linkProvider;
-    }
+    public function getLinkProvider(): EvolvableLinkProviderInterface;
 
     /**
      * Replace the link provider within the manager.
@@ -36,10 +20,7 @@ final class PushManager implements PushManagerContract
      *
      * @return void
      */
-    public function setLinkProvider(EvolvableLinkProviderInterface $linkProvider): void
-    {
-        $this->linkProvider = $linkProvider;
-    }
+    public function setLinkProvider(EvolvableLinkProviderInterface $linkProvider): void;
 
     /**
      * Adds a "Link" HTTP header for a resource.
@@ -50,18 +31,7 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function link(string $uri, string $rel, array $attributes = []): string
-    {
-        $link = new Link($rel, $uri);
-
-        foreach ($attributes as $key => $value) {
-            $link = $link->withAttribute($key, $value);
-        }
-
-        $this->setLinkProvider($this->getLinkProvider()->withLink($link));
-
-        return $uri;
-    }
+    public function link(string $uri, string $rel, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "preload" relation.
@@ -71,10 +41,7 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function preload(string $uri, array $attributes = []): string
-    {
-        return $this->link($uri, 'preload', $attributes);
-    }
+    public function preload(string $uri, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "dns-prefetch" relation.
@@ -84,10 +51,7 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function dnsPrefetch(string $uri, array $attributes = []): string
-    {
-        return $this->link($uri, 'dns-prefetch', $attributes);
-    }
+    public function dnsPrefetch(string $uri, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "preconnect" relation.
@@ -97,10 +61,7 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function preconnect(string $uri, array $attributes = []): string
-    {
-        return $this->link($uri, 'preconnect', $attributes);
-    }
+    public function preconnect(string $uri, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "prefetch" relation.
@@ -110,10 +71,7 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function prefetch(string $uri, array $attributes = []): string
-    {
-        return $this->link($uri, 'prefetch', $attributes);
-    }
+    public function prefetch(string $uri, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "prerender" relation.
@@ -123,8 +81,5 @@ final class PushManager implements PushManagerContract
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function prerender(string $uri, array $attributes = []): string
-    {
-        return $this->link($uri, 'prerender', $attributes);
-    }
+    public function prerender(string $uri, array $attributes = []): string;
 }

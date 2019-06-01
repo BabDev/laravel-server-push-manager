@@ -2,6 +2,7 @@
 
 namespace BabDev\ServerPushManager\Providers;
 
+use BabDev\ServerPushManager\Contracts\PushManager as PushManagerContract;
 use BabDev\ServerPushManager\PushManager;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,5 +18,6 @@ final class ServerPushManagerProvider extends ServiceProvider
         );
 
         $this->app->alias('babdev.push_manager', PushManager::class);
+        $this->app->alias('babdev.push_manager', PushManagerContract::class);
     }
 }

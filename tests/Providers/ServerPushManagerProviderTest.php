@@ -2,6 +2,7 @@
 
 namespace BabDev\ServerPushManager\Tests\Providers;
 
+use BabDev\ServerPushManager\Contracts\PushManager as PushManagerContract;
 use BabDev\ServerPushManager\PushManager;
 use BabDev\ServerPushManager\Providers\ServerPushManagerProvider;
 use Illuminate\Container\Container;
@@ -17,5 +18,6 @@ final class ServerPushManagerProviderTest extends TestCase
 
         $this->assertTrue($container->bound('babdev.push_manager'));
         $this->assertSame('babdev.push_manager', $container->getAlias(PushManager::class));
+        $this->assertSame('babdev.push_manager', $container->getAlias(PushManagerContract::class));
     }
 }
