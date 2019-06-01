@@ -1,0 +1,40 @@
+language: php
+sudo: false
+dist: trusty
+
+env:
+  global:
+    - COMPOSER_FLAGS="--prefer-stable"
+
+matrix:
+  include:
+    - php: 7.1
+      env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest" LARAVEL_VERSION="5.7.*"
+    - php: 7.2
+      env: LARAVEL_VERSION="5.8.*"
+    - php: 7.3
+      env: LARAVEL_VERSION="5.8.*"
+    - php: 7.3
+      # This empty flag removes the prefer-stable switch to cause dev dependencies to be installed
+      env: COMPOSER_FLAGS="" LARAVEL_VERSION="5.8.*"
+    - php: 7.3
+      env: LARAVEL_VERSION="5.9.*@dev"
+    - php: 7.4snapshot
+      env: LARAVEL_VERSION="5.8.*"
+    - php: nightly
+      env: LARAVEL_VERSION="5.8.*"
+  allow_failures:
+    - php: 7.3
+      env: LARAVEL_VERSION="5.9.*@dev"
+    - php: 7.4snapshot
+      env: LARAVEL_VERSION="5.8.*"
+    - php: nightly
+      env: LARAVEL_VERSION="5.8.*"
+
+before_script:
+  - composer self-update
+  - composer require --no-update laravel/framework:${LARAVEL_VERSION}
+  - composer update $COMPOSER_FLAGS
+
+script:
+  - vendor/bin/phpunit

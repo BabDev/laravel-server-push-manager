@@ -1,4 +1,4 @@
-# Server Push Manager for Laravel
+# Server Push Manager for Laravel [![Build Status](https://travis-ci.com/BabDev/laravel-server-push-manager.svg?branch=master)](https://travis-ci.com/BabDev/laravel-server-push-manager)
 
 Laravel package adding a HTTP/2 server push manager to your Laravel applications.
 
