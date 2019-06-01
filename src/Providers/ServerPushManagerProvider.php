@@ -1,10 +1,11 @@
 <?php
 
-namespace BabDev\ServerPushManager;
+namespace BabDev\ServerPushManager\Providers;
 
+use BabDev\ServerPushManager\PushManager;
 use Illuminate\Support\ServiceProvider;
 
-final class ServerPushManagerServiceProvider extends ServiceProvider
+final class ServerPushManagerProvider extends ServiceProvider
 {
     public function register()
     {

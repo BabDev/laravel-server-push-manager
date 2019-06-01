@@ -35,10 +35,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BabDev\\ServerPushManager\\ServerPushManagerServiceProvider"
+                "BabDev\\ServerPushManager\\Providers\\ServerPushManagerProvider"
             ],
             "aliases": {
-                "PushManager": "BabDev\\ServerPushManager\\PushManagerFacade"
+                "PushManager": "BabDev\\ServerPushManager\\Facades\\PushManager"
             }
         }
     }

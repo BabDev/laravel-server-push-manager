@@ -1,14 +1,14 @@
 <?php
 
-namespace BabDev\ServerPushManager\Tests;
+namespace BabDev\ServerPushManager\Tests\Http\Middleware;
 
 use BabDev\ServerPushManager\PushManager;
-use BabDev\ServerPushManager\ServerPushMiddleware;
+use BabDev\ServerPushManager\Http\Middleware\ServerPush;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PHPUnit\Framework\TestCase;
 
-final class ServerPushMiddlewareTest extends TestCase
+final class ServerPushTest extends TestCase
 {
     /**
      * @var PushManager
@@ -16,7 +16,7 @@ final class ServerPushMiddlewareTest extends TestCase
     private $pushManager;
 
     /**
-     * @var ServerPushMiddleware
+     * @var ServerPush
      */
     private $middleware;
 
@@ -24,7 +24,7 @@ final class ServerPushMiddlewareTest extends TestCase
     {
         $this->pushManager = new PushManager();
 
-        $this->middleware = new ServerPushMiddleware($this->pushManager);
+        $this->middleware = new ServerPush($this->pushManager);
     }
 
     public function testNoLinkHeaderIsAddedIfThereAreNoPushedResources(): void

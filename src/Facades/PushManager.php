@@ -1,6 +1,6 @@
 <?php
 
-namespace BabDev\ServerPushManager;
+namespace BabDev\ServerPushManager\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Psr\Link\EvolvableLinkProviderInterface;
@@ -17,7 +17,7 @@ use Psr\Link\EvolvableLinkProviderInterface;
  *
  * @see \BabDev\ServerPushManager\PushManager
  */
-final class PushManagerFacade extends Facade
+final class PushManager extends Facade
 {
     protected static function getFacadeAccessor()
     {

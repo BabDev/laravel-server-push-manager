@@ -13,23 +13,23 @@ composer require babdev/laravel-server-push-manager
 If your application is not using package discovery, you will need to add the service provider to your `config/app.php` file:
 
 ```sh
-BabDev\ServerPushManager\ServerPushManagerServiceProvider::class,
+BabDev\ServerPushManager\Providers\ServerPushManagerProvider::class,
 ```
 
 Likewise, you will also need to register the facade in your `config/app.php` file if not using package discovery:
 
 ```sh
-'PushManager' => BabDev\ServerPushManager\PushManagerFacade::class,
+'PushManager' => BabDev\ServerPushManager\Facades\PushManager::class,
 ``` 
 
-To send the header, you will need to register `BabDev\ServerPushManager\ServerPushMiddleware` as a middleware in your kernel. It is recommended to add it to only groups which handle web traffic with pushed assets, such as the default "web" group:
+To send the header, you will need to register `BabDev\ServerPushManager\Http\Middleware\ServerPush` as a middleware in your kernel. It is recommended to add it to only groups which handle web traffic with pushed assets, such as the default "web" group:
 
 ```php
 // app/Http/Kernel.php
 
 protected $middlewareGroups = [
     'web' => [
-        \BabDev\ServerPushManager\ServerPushMiddleware::class,
+        \BabDev\ServerPushManager\Http\Middleware\ServerPush::class,
     ],
 ];
 ```
@@ -38,7 +38,7 @@ protected $middlewareGroups = [
 
 ### Within Blade Templates
 
-You can specify which assets should have a server push directive directly within your Blade templates by calling the `PushManager` service. Because the `PushManager` returns the original URI, you can wrap calls to `asset()` or `mix()` with a call to the manager. Note, the below example requires the `PushManagerFacade` have been registered in your application.
+You can specify which assets should have a server push directive directly within your Blade templates by calling the `PushManager` service. Because the `PushManager` returns the original URI, you can wrap calls to `asset()` or `mix()` with a call to the manager. Note, the below example requires the `PushManager` facade has been registered in your application.
 
 ```php
 <link href="{{ PushManager::preload(mix('css/app.css'), ['as' => 'stylesheet']) }}" rel="stylesheet">

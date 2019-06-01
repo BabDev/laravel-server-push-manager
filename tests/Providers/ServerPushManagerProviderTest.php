@@ -1,19 +1,19 @@
 <?php
 
-namespace BabDev\ServerPushManager\Tests;
+namespace BabDev\ServerPushManager\Tests\Providers;
 
 use BabDev\ServerPushManager\PushManager;
-use BabDev\ServerPushManager\ServerPushManagerServiceProvider;
+use BabDev\ServerPushManager\Providers\ServerPushManagerProvider;
 use Illuminate\Container\Container;
 use PHPUnit\Framework\TestCase;
 
-final class ServerPushManagerServiceProviderTest extends TestCase
+final class ServerPushManagerProviderTest extends TestCase
 {
     public function testServiceIsRegistered(): void
     {
         $container = new Container();
 
-        (new ServerPushManagerServiceProvider($container))->register();
+        (new ServerPushManagerProvider($container))->register();
 
         $this->assertTrue($container->bound('babdev.push_manager'));
         $this->assertSame('babdev.push_manager', $container->getAlias(PushManager::class));
