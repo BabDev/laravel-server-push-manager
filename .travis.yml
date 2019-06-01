@@ -1,6 +1,6 @@
+dist: xenial
 language: php
 sudo: false
-dist: trusty
 
 env:
   global:
@@ -31,10 +31,17 @@ matrix:
     - php: nightly
       env: LARAVEL_VERSION="5.8.*"
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - phpenv config-rm xdebug.ini || true
+  - travis_retry composer self-update
+
 before_script:
-  - composer self-update
-  - composer require --no-update laravel/framework:${LARAVEL_VERSION}
-  - composer update $COMPOSER_FLAGS
+  - travis_retry composer require --no-update laravel/framework:${LARAVEL_VERSION}
+  - travis_retry composer update $COMPOSER_FLAGS
 
 script:
   - vendor/bin/phpunit
