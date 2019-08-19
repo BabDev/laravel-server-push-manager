@@ -40,6 +40,8 @@ before_install:
   - travis_retry composer self-update
 
 before_script:
+  - travis_retry composer remove --no-update illuminate/*
+  - travis_retry composer remove --dev --no-update laravel/framework
   - travis_retry composer require --no-update laravel/framework:${LARAVEL_VERSION}
   - travis_retry composer update $COMPOSER_FLAGS
 
