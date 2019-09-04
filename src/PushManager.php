@@ -20,7 +20,7 @@ final class PushManager implements PushManagerContract
     }
 
     /**
-     * Retreive the link provider for the manager.
+     * Retrieve the link provider for the manager.
      *
      * @return EvolvableLinkProviderInterface
      */

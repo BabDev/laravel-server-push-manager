@@ -7,7 +7,7 @@ use Psr\Link\EvolvableLinkProviderInterface;
 interface PushManager
 {
     /**
-     * Retreive the link provider for the manager.
+     * Retrieve the link provider for the manager.
      *
      * @return EvolvableLinkProviderInterface
      */
