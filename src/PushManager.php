@@ -14,6 +14,11 @@ final class PushManager implements PushManagerContract
      */
     private $linkProvider;
 
+    /**
+     * Instantiates the manager.
+     *
+     * @param EvolvableLinkProviderInterface|null $linkProvider
+     */
     public function __construct(?EvolvableLinkProviderInterface $linkProvider = null)
     {
         $this->linkProvider = $linkProvider ?: new GenericLinkProvider();

@@ -2,8 +2,8 @@
 
 namespace BabDev\ServerPushManager\Tests\Http\Middleware;
 
-use BabDev\ServerPushManager\PushManager;
 use BabDev\ServerPushManager\Http\Middleware\ServerPush;
+use BabDev\ServerPushManager\PushManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PHPUnit\Framework\TestCase;

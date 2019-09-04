@@ -3,8 +3,8 @@
 namespace BabDev\ServerPushManager\Tests\Providers;
 
 use BabDev\ServerPushManager\Contracts\PushManager as PushManagerContract;
-use BabDev\ServerPushManager\PushManager;
 use BabDev\ServerPushManager\Providers\ServerPushManagerProvider;
+use BabDev\ServerPushManager\PushManager;
 use Illuminate\Container\Container;
 use PHPUnit\Framework\TestCase;
 

@@ -8,6 +8,9 @@ use Illuminate\Http\Response;
 use Psr\Link\EvolvableLinkProviderInterface;
 use Symfony\Component\WebLink\HttpHeaderSerializer;
 
+/**
+ * Middleware which adds an HTTP/2 "Link" header to the response.
+ */
 final class ServerPush
 {
     /**
@@ -15,11 +18,24 @@ final class ServerPush
      */
     private $pushManager;
 
+    /**
+     * Instantiates the middleware.
+     *
+     * @param PushManager $pushManager
+     */
     public function __construct(PushManager $pushManager)
     {
         $this->pushManager = $pushManager;
     }
 
+    /**
+     * Handle an incoming request.
+     *
+     * @param Request  $request
+     * @param \Closure $next
+     *
+     * @return mixed
+     */
     public function handle(Request $request, \Closure $next)
     {
         $response = $next($request);

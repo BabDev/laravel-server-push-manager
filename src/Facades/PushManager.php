@@ -19,6 +19,11 @@ use Psr\Link\EvolvableLinkProviderInterface;
  */
 final class PushManager extends Facade
 {
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
     protected static function getFacadeAccessor()
     {
         return 'babdev.push_manager';
