@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2019-09-16)
+
+- Make the service provider deferrable
+
 ## 1.1.0 (2019-09-04)
 
 - Drop support for Laravel 5.7
