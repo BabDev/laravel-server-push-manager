@@ -18,6 +18,8 @@ final class ServerPushManagerProvider extends ServiceProvider implements Deferra
     {
         return [
             'babdev.push_manager',
+            PushManager::class,
+            PushManagerContract::class,
         ];
     }
 
