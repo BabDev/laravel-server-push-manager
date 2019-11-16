@@ -16,7 +16,7 @@ matrix:
       env: LARAVEL_VERSION="6.*"
     - php: 7.3
       # This empty flag removes the prefer-stable switch to cause dev dependencies to be installed
-      env: COMPOSER_FLAGS="" LARAVEL_VERSION="5.8.*"
+      env: COMPOSER_FLAGS="" LARAVEL_VERSION="6.*"
     - php: 7.4snapshot
       env: LARAVEL_VERSION="6.*"
     - php: nightly
