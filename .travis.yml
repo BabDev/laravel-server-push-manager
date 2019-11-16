@@ -22,8 +22,6 @@ matrix:
     - php: nightly
       env: LARAVEL_VERSION="6.*"
   allow_failures:
-    - php: 7.4snapshot
-      env: LARAVEL_VERSION="6.*"
     - php: nightly
       env: LARAVEL_VERSION="6.*"
 
