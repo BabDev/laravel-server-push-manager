@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 (2019-11-16)
+
+- Add support for Symfony 5
+- PHP 7.4 is supported
+
 ## 1.2.0 (2019-09-16)
 
 - Make the service provider deferrable
