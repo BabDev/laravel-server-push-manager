@@ -29,8 +29,22 @@ final class ServerPushTest extends TestCase
 
     public function testNoLinkHeaderIsAddedIfThereAreNoPushedResources(): void
     {
-        $next = function () {
+        $next = static function (): Response {
             return new Response();
+        };
+
+        $request = new Request();
+
+        /** @var Response $response */
+        $response = $this->middleware->handle($request, $next);
+
+        $this->assertFalse($response->headers->has('Link'));
+    }
+
+    public function testNoLinkHeaderIsAddedIfTheResponseIsARedirect(): void
+    {
+        $next = static function (): Response {
+            return new Response('', 301);
         };
 
         $request = new Request();
@@ -43,7 +57,7 @@ final class ServerPushTest extends TestCase
 
     public function testALinkHeaderIsAddedForPushedResources(): void
     {
-        $next = function () {
+        $next = function (): Response {
             $this->pushManager->preload('/css/app.css');
 
             return new Response();
