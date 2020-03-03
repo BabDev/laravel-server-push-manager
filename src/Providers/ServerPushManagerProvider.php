@@ -32,7 +32,7 @@ final class ServerPushManagerProvider extends ServiceProvider implements Deferra
     {
         $this->app->singleton(
             'babdev.push_manager',
-            function () {
+            static function (): PushManager {
                 return new PushManager();
             }
         );
