@@ -21,7 +21,7 @@ Note that each of these methods returns the `$uri` passed into the method, this 
 
 You can specify which assets should have a server push directive directly within your Blade templates by calling the `PushManager` service. Because the `PushManager` returns the original URI, you can wrap calls to `asset()` or `mix()` with a call to the manager.
 
-{note} The below example requires the `PushManager` facade has been registered in your application.
+<div class="docs-note">The below example requires the <code>PushManager</code> facade has been registered in your application.</div>
 
 ```blade
 <link href="{{ PushManager::preload(mix('css/app.css'), ['as' => 'stylesheet']) }}" rel="stylesheet">
