@@ -1,6 +1,8 @@
-# Server Push Manager for Laravel [![Build Status](https://travis-ci.com/BabDev/laravel-server-push-manager.svg?branch=master)](https://travis-ci.com/BabDev/laravel-server-push-manager)
+# Server Push Manager for Laravel
 
-Laravel package adding a HTTP/2 server push manager to your Laravel applications.
+[![Latest Stable Version](https://poser.pugx.org/babdev/laravel-server-push-manager/v/stable)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![Latest Unstable Version](https://poser.pugx.org/babdev/laravel-server-push-manager/v/unstable)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![Total Downloads](https://poser.pugx.org/babdev/laravel-server-push-manager/downloads)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![License](https://poser.pugx.org/babdev/laravel-server-push-manager/license)](https://packagist.org/packages/babdev/laravel-server-push-manager) ![Run Tests](https://github.com/BabDev/laravel-server-push-manager/workflows/Run%20Tests/badge.svg?branch=master)
+
+[Laravel](https://laravel.com) package adding a HTTP/2 server push manager to your Laravel applications.
 
 ## Why Another Package?
 
