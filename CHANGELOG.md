@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 (????-??-??)
+
+- Drop support for all Laravel versions before 6.18 (6.x LTS)
+
 ## 1.4.0 (2020-03-03)
 
 - Add support for Laravel 7
