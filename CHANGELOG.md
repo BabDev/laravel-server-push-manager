@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0 (????-??-??)
+
+- Drop support for Laravel 7
+
 ## 1.5.0 (2020-09-07)
 
 - Drop support for all Laravel versions before 6.18 (6.x LTS)
