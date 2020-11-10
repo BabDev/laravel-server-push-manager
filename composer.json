@@ -4,7 +4,7 @@
     "description": "HTTP/2 server push manager for Laravel",
     "keywords": ["laravel", "server-push"],
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 || ^8.0",
         "fig/link-util": "^1.0",
         "illuminate/http": "^6.18 || ^8.0",
         "illuminate/support": "^6.18 || ^8.0",

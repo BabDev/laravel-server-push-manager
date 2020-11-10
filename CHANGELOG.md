@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.6.0 (????-??-??)
+## 1.6.0 (2020-11-09)
 
 - Drop support for Laravel 7
+- Allow install on PHP 8
 
 ## 1.5.0 (2020-09-07)
 
