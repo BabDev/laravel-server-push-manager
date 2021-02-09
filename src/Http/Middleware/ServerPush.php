@@ -6,22 +6,17 @@ use BabDev\ServerPushManager\Http\HeaderSerializer;
 use BabDev\ServerPushManager\PushManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Psr\Link\EvolvableLinkProviderInterface;
+use Psr\Link\LinkProviderInterface;
 
 /**
  * Middleware which adds an HTTP/2 "Link" header to the response.
  */
 final class ServerPush
 {
-    /**
-     * @var PushManager
-     */
-    private $pushManager;
+    private PushManager $pushManager;
 
     /**
      * Instantiates the middleware.
-     *
-     * @param PushManager $pushManager
      */
     public function __construct(PushManager $pushManager)
     {
@@ -30,13 +25,8 @@ final class ServerPush
 
     /**
      * Handle an incoming request.
-     *
-     * @param Request  $request
-     * @param \Closure $next
-     *
-     * @return mixed
      */
-    public function handle(Request $request, \Closure $next)
+    public function handle(Request $request, \Closure $next): mixed
     {
         $response = $next($request);
 
@@ -46,7 +36,7 @@ final class ServerPush
 
         $linkProvider = $this->pushManager->getLinkProvider();
 
-        if ($linkProvider instanceof EvolvableLinkProviderInterface && $links = $linkProvider->getLinks()) {
+        if ($linkProvider instanceof LinkProviderInterface && $links = $linkProvider->getLinks()) {
             $response->header('Link', (new HeaderSerializer())->serialize($links));
         }
 

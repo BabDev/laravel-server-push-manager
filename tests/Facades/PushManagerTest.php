@@ -9,14 +9,14 @@ use Orchestra\Testbench\TestCase;
 
 final class PushManagerTest extends TestCase
 {
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             ServerPushManagerProvider::class,
         ];
     }
 
-    protected function getPackageAliases($app)
+    protected function getPackageAliases($app): array
     {
         return [
             'PushManager' => PushManagerFacade::class,
