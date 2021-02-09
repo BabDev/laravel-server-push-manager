@@ -2,11 +2,11 @@
 
 namespace BabDev\ServerPushManager\Http\Middleware;
 
+use BabDev\ServerPushManager\Http\HeaderSerializer;
 use BabDev\ServerPushManager\PushManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Psr\Link\EvolvableLinkProviderInterface;
-use Symfony\Component\WebLink\HttpHeaderSerializer;
 
 /**
  * Middleware which adds an HTTP/2 "Link" header to the response.
@@ -47,7 +47,7 @@ final class ServerPush
         $linkProvider = $this->pushManager->getLinkProvider();
 
         if ($linkProvider instanceof EvolvableLinkProviderInterface && $links = $linkProvider->getLinks()) {
-            $response->header('Link', (new HttpHeaderSerializer())->serialize($links));
+            $response->header('Link', (new HeaderSerializer())->serialize($links));
         }
 
         return $response;
