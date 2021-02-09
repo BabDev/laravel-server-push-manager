@@ -8,6 +8,8 @@ use Psr\Link\LinkInterface;
  * Serializes a list of Link instances to a HTTP Link header.
  *
  * This class is based on `Symfony\Component\WebLink\HttpHeaderSerializer`
+ *
+ * @internal
  */
 final class HeaderSerializer
 {
