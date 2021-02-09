@@ -25,9 +25,17 @@ final class HeaderSerializer
                 continue;
             }
 
-            $attributes = ['', \sprintf('rel="%s"', \implode(' ', $link->getRels()))];
+            $attributes = [\sprintf('rel="%s"', \implode(' ', $link->getRels()))];
 
             foreach ($link->getAttributes() as $key => $value) {
+                if (\is_array($value)) {
+                    foreach ($value as $v) {
+                        $attributes[] = \sprintf('%s="%s"', $key, $v);
+                    }
+
+                    continue;
+                }
+
                 if (!\is_bool($value)) {
                     $attributes[] = \sprintf('%s="%s"', $key, $value);
 
