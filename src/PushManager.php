@@ -40,14 +40,22 @@ final class PushManager implements PushManagerContract
      * Adds a "Link" HTTP header for a resource.
      *
      * @param string                $uri        The relation URI
-     * @param string                $rel        The relation type(s) (e.g. "preload", "prefetch", "prerender" or "dns-prefetch")
+     * @param string|string[]       $rel        The relation type(s) (e.g. "preload", "prefetch", "prerender" or "dns-prefetch")
      * @param array<string, string> $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function link(string $uri, string $rel, array $attributes = []): string
+    public function link(string $uri, string|array $rel, array $attributes = []): string
     {
-        $link = new Link($rel, $uri);
+        $link = new Link('', $uri);
+
+        if (\is_string($rel)) {
+            $rel = [$rel];
+        }
+
+        foreach ($rel as $value) {
+            $link = $link->withRel($value);
+        }
 
         foreach ($attributes as $key => $value) {
             $link = $link->withAttribute($key, $value);

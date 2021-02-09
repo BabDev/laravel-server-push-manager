@@ -24,13 +24,25 @@ final class PushManagerTest extends TestCase
     }
 
     /**
-     * @testdox  A Link header for the specified relations is added
+     * @testdox  A Link header for the specified relations as a string is added
      */
-    public function testLink(): void
+    public function testLinkWithStringRelations(): void
     {
-        \PushManager::link('/foo.css', 'preload prefetch', ['as' => 'style', 'crossorigin' => true]);
+        \PushManager::link('/foo.css', 'preload', ['as' => 'style', 'crossorigin' => true]);
 
-        $link = (new Link('preload prefetch', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
+        $link = (new Link('preload', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
+
+        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+    }
+
+    /**
+     * @testdox  A Link header for the specified relations as an array is added
+     */
+    public function testLinkWithArrayRelations(): void
+    {
+        \PushManager::link('/foo.css', ['preload', 'prefetch'], ['as' => 'style', 'crossorigin' => true]);
+
+        $link = (new Link('', '/foo.css'))->withRel('preload')->withRel('prefetch')->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
         $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
     }

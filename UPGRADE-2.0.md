@@ -11,3 +11,4 @@ The below guide will assist in upgrading from the 1.x versions to 2.0.
 
 - Uses 1.1 or later of the PSR-13 specification, which requires PHP 8.0
 - The `$attributes` parameter of the PushManager class' methods no longer accepts mixed values, per the PSR these must be strings
+- The `PushManager::link()` method's `$rel` param now supports a string or array of strings

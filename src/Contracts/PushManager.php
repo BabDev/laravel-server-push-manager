@@ -20,12 +20,12 @@ interface PushManager
      * Adds a "Link" HTTP header for a resource.
      *
      * @param string                $uri        The relation URI
-     * @param string                $rel        The relation type(s) (e.g. "preload", "prefetch", "prerender" or "dns-prefetch")
+     * @param string|string[]       $rel        The relation type(s) (e.g. "preload", "prefetch", "prerender" or "dns-prefetch")
      * @param array<string, string> $attributes The attributes of this link (e.g. "array('as' => true)", "array('pr' => 0.5)")
      *
      * @return string The `$uri` originally passed into this method
      */
-    public function link(string $uri, string $rel, array $attributes = []): string;
+    public function link(string $uri, string|array $rel, array $attributes = []): string;
 
     /**
      * Shortcut to add a "Link" HTTP header for a resource with the "preload" relation.
