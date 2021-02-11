@@ -58,7 +58,9 @@ final class ServerPushTest extends TestCase
     public function testALinkHeaderIsAddedForPushedResources(): void
     {
         $next = function (): Response {
-            $this->pushManager->preload('/css/app.css');
+            $this->pushManager->preload('/css/app.css', ['nopush' => false]);
+            $this->pushManager->preload('/css/style.css', ['nopush' => true]);
+            $this->pushManager->link('/blog/page/2', 'next', ['hreflang' => ['fr', 'de']]);
 
             return new Response();
         };
@@ -69,5 +71,9 @@ final class ServerPushTest extends TestCase
         $response = $this->middleware->handle($request, $next);
 
         $this->assertTrue($response->headers->has('Link'));
+        $this->assertSame(
+            '</css/app.css>; rel="preload",</css/style.css>; rel="preload"; nopush,</blog/page/2>; rel="next"; hreflang="fr"; hreflang="de"',
+            $response->headers->get('Link')
+        );
     }
 }
