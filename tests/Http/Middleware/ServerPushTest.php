@@ -4,6 +4,7 @@ namespace BabDev\ServerPushManager\Tests\Http\Middleware;
 
 use BabDev\ServerPushManager\Http\Middleware\ServerPush;
 use BabDev\ServerPushManager\PushManager;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PHPUnit\Framework\TestCase;
@@ -29,9 +30,7 @@ final class ServerPushTest extends TestCase
 
     public function testNoLinkHeaderIsAddedIfThereAreNoPushedResources(): void
     {
-        $next = static function (): Response {
-            return new Response();
-        };
+        $next = static fn () => new Response();
 
         $request = new Request();
 
@@ -43,9 +42,7 @@ final class ServerPushTest extends TestCase
 
     public function testNoLinkHeaderIsAddedIfTheResponseIsARedirect(): void
     {
-        $next = static function (): Response {
-            return new Response('', 301);
-        };
+        $next = static fn () => new RedirectResponse('http://localhost', 301);
 
         $request = new Request();
 
