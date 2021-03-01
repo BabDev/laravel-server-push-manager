@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.0 (????-??-??)
+
+- Allow 2.0 of the `psr/link` specification to be used
+- Conflict with the 1.1.0 and 2.0.0 versions of the `psr/link` specification due to a type bug
+
 ## 1.6.0 (2020-11-09)
 
 - Drop support for Laravel 7
