@@ -16,6 +16,9 @@
         "orchestra/testbench": "^4.0 || ^6.0",
         "phpunit/phpunit": "^8.5 || ^9.3"
     },
+    "conflict": {
+        "psr/link": "1.1.0 || 2.0.0"
+    },
     "autoload": {
         "psr-4": {
             "BabDev\\ServerPushManager\\": "src/"
