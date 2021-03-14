@@ -1,6 +1,18 @@
 # Usage
 
-## Supported Relations
+## Primary Usage
+
+The `BabDev\ServerPushManager\Contracts\PushManager::link()` method is the main method for adding a link with any set of relations and/or attributes which will be converted into an appropriate HTTP/2 `Link` response header value.
+
+The method accepts three parameters:
+
+- `$uri` - The URI for the resource
+- `$rel` - The relations for this resource, this may be either a single string or an array of strings to specify multiple relations
+- `$attributes` - An optional array of additional attributes for the resource, these are passed to the `Psr\Link\EvolvableLinkInterface::withAttribute()` method and the values should follow the specification's requirements
+
+Note that this method returns the `$uri` passed into it, this allows you to wrap other function calls within calls to the manager (see below for an example).
+
+## Helper Methods
 
 The `BabDev\ServerPushManager\Contracts\PushManager` interface defines several helper methods for adding resources to a HTTP/2 `Link` response header with the appropriate relations, including:
 
@@ -13,7 +25,7 @@ The `BabDev\ServerPushManager\Contracts\PushManager` interface defines several h
 Each of these methods accepts two parameters:
 
 - `$uri` - The URI for the resource
-- `$attributes` - An optional array of additional attributes for the resource
+- `$attributes` - An optional array of additional attributes for the resource, these are passed to the `Psr\Link\EvolvableLinkInterface::withAttribute()` method and the values should follow the specification's requirements
 
 Note that each of these methods returns the `$uri` passed into the method, this allows you to wrap other function calls within calls to the manager (see below for an example).
 

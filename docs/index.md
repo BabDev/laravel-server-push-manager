@@ -1,3 +1,3 @@
-- [Introduction](/open-source/packages/laravel-server-push-manager/docs/1.x/intro)
-- [Installation & Setup](/open-source/packages/laravel-server-push-manager/docs/1.x/installation)
-- [Usage](/open-source/packages/laravel-server-push-manager/docs/1.x/usage)
+- [Introduction](/open-source/packages/laravel-server-push-manager/docs/2.x/intro)
+- [Installation & Setup](/open-source/packages/laravel-server-push-manager/docs/2.x/installation)
+- [Usage](/open-source/packages/laravel-server-push-manager/docs/2.x/usage)
