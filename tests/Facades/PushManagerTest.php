@@ -32,7 +32,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('preload', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -44,7 +44,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('', '/foo.css'))->withRel('preload')->withRel('prefetch')->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -56,7 +56,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('preload', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -68,7 +68,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('dns-prefetch', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -80,7 +80,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('preconnect', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -92,7 +92,7 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('prefetch', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
     /**
@@ -104,6 +104,6 @@ final class PushManagerTest extends TestCase
 
         $link = (new Link('prerender', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], \array_values(\PushManager::getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 }

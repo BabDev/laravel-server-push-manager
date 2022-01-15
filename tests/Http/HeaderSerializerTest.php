@@ -18,7 +18,7 @@ final class HeaderSerializerTest extends TestCase
         $this->serializer = new HeaderSerializer();
     }
 
-    public function testSerialize()
+    public function testSerialize(): void
     {
         $links = [
             new Link('prerender', '/1'),
@@ -31,7 +31,7 @@ final class HeaderSerializerTest extends TestCase
         $this->assertEquals('</1>; rel="prerender",</2>; rel="dns-prefetch"; pr="0.7",</3>; rel="preload"; as="script",</4>; rel="preload"; as="image"; nopush,</5>; rel="alternate next"; hreflang="fr"; hreflang="de"; title="Hello"', $this->serializer->serialize($links));
     }
 
-    public function testSerializeEmpty()
+    public function testSerializeEmpty(): void
     {
         $this->assertNull($this->serializer->serialize([]));
     }
