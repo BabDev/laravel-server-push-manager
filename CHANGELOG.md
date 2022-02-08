@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.1.0 (2022-??-??)
+## 2.1.0 (2022-02-08)
 
 - Add support for Laravel 9
 
