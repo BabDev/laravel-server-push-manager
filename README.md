@@ -12,7 +12,7 @@ Unlike other existing packages which are focused on automatically including reso
 
 ## Documentation
 
-Please see the [BabDev website](https://www.babdev.com/open-source/packages/laravel-server-push-manager/docs/1.x) for detailed information on how to use this package.
+Please see the [BabDev website](https://www.babdev.com/open-source/packages/laravel-server-push-manager/docs/2.x/intro) for detailed information on how to use this package.
 
 ## Security
 
