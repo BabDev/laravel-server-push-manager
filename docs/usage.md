@@ -36,7 +36,7 @@ You can specify which assets should have a server push directive directly within
 <div class="docs-note">The below example requires the <code>PushManager</code> facade has been registered in your application.</div>
 
 ```blade
-<link href="{{ PushManager::preload(mix('css/app.css'), ['as' => 'stylesheet']) }}" rel="stylesheet">
+<link href="{{ PushManager::preload(mix('css/app.css'), ['as' => 'style']) }}" rel="stylesheet">
 <script src="{{ PushManager::preload(asset('js/app.js'), ['as' => 'script']) }}"></script>
 ```
 
@@ -61,14 +61,14 @@ final class HomepageController
 
     public function homepageWithConstructor()
     {
-        $this->pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
+        $this->pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'style']);
 
         return $this->renderHomepage();
     }
 
     public function homepageWithMethodInjection(Request $request, PushManager $pushManager)
     {
-        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
+        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'style']);
 
         return $this->renderHomepage();
     }
@@ -77,14 +77,14 @@ final class HomepageController
     {
         /** @var PushManager $pushManager */
         $pushManager = app('babdev.push_manager');
-        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
+        $pushManager->preload('https://laravel.com/assets/css/laravel.css', ['as' => 'style']);
 
         return $this->renderHomepage();
     }
 
     public function homepageWithFacade()
     {
-        \PushManager::preload('https://laravel.com/assets/css/laravel.css', ['as' => 'stylesheet']);
+        \PushManager::preload('https://laravel.com/assets/css/laravel.css', ['as' => 'style']);
 
         return $this->renderHomepage();
     }
