@@ -13,14 +13,12 @@ use Psr\Link\LinkProviderInterface;
  */
 final class ServerPush
 {
-    private PushManager $pushManager;
-
     /**
      * Instantiates the middleware.
      */
-    public function __construct(PushManager $pushManager)
-    {
-        $this->pushManager = $pushManager;
+    public function __construct(
+        private readonly PushManager $pushManager,
+    ) {
     }
 
     /**

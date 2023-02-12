@@ -8,14 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class PushManagerTest extends TestCase
 {
-    /**
-     * @var PushManager
-     */
-    private $object;
+    private PushManager $manager;
 
     protected function setUp(): void
     {
-        $this->object = new PushManager();
+        $this->manager = new PushManager();
     }
 
     /**
@@ -23,11 +20,11 @@ final class PushManagerTest extends TestCase
      */
     public function testLinkWithStringRelations(): void
     {
-        $this->object->link('/foo.css', 'preload', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->link('/foo.css', 'preload', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('preload', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -35,11 +32,11 @@ final class PushManagerTest extends TestCase
      */
     public function testLinkWithArrayRelations(): void
     {
-        $this->object->link('/foo.css', ['preload', 'prefetch'], ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->link('/foo.css', ['preload', 'prefetch'], ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('', '/foo.css'))->withRel('preload')->withRel('prefetch')->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -47,11 +44,11 @@ final class PushManagerTest extends TestCase
      */
     public function testPreload(): void
     {
-        $this->object->preload('/foo.css', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->preload('/foo.css', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('preload', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -59,11 +56,11 @@ final class PushManagerTest extends TestCase
      */
     public function testDnsPrefetch(): void
     {
-        $this->object->dnsPrefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->dnsPrefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('dns-prefetch', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -71,11 +68,11 @@ final class PushManagerTest extends TestCase
      */
     public function testPreconnect(): void
     {
-        $this->object->preconnect('/foo.css', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->preconnect('/foo.css', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('preconnect', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -83,11 +80,11 @@ final class PushManagerTest extends TestCase
      */
     public function testPrefetch(): void
     {
-        $this->object->prefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->prefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('prefetch', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
     /**
@@ -95,10 +92,10 @@ final class PushManagerTest extends TestCase
      */
     public function testPrerender(): void
     {
-        $this->object->prerender('/foo.css', ['as' => 'style', 'crossorigin' => true]);
+        $this->manager->prerender('/foo.css', ['as' => 'style', 'crossorigin' => true]);
 
         $link = (new Link('prerender', '/foo.css'))->withAttribute('as', 'style')->withAttribute('crossorigin', true);
 
-        $this->assertEquals([$link], array_values($this->object->getLinkProvider()->getLinks()));
+        $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 }

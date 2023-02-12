@@ -11,15 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ServerPushTest extends TestCase
 {
-    /**
-     * @var PushManager
-     */
-    private $pushManager;
+    private PushManager $pushManager;
 
-    /**
-     * @var ServerPush
-     */
-    private $middleware;
+    private ServerPush $middleware;
 
     protected function setUp(): void
     {

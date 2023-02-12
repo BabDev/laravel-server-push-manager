@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0 (2023-02-12)
+
+- Add support for Laravel 10
+- Drop support for Laravel 8
+- Drop support for PHP 8.0
+
 ## 2.1.0 (2022-02-08)
 
 - Add support for Laravel 9

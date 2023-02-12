@@ -8,10 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HeaderSerializerTest extends TestCase
 {
-    /**
-     * @var HeaderSerializer
-     */
-    private $serializer;
+    private HeaderSerializer $serializer;
 
     protected function setUp(): void
     {
