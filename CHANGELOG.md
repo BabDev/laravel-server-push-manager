@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.2.0 (2023-02-12)
+## 2.2.0 (2023-02-14)
 
 - Add support for Laravel 10
 - Drop support for Laravel 8
