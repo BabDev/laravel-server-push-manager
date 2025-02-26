@@ -24,7 +24,7 @@ final class ServerPushTest extends TestCase
 
     public function testNoLinkHeaderIsAddedIfThereAreNoPushedResources(): void
     {
-        $next = static fn () => new Response();
+        $next = static fn() => new Response();
 
         $request = new Request();
 
@@ -36,7 +36,7 @@ final class ServerPushTest extends TestCase
 
     public function testNoLinkHeaderIsAddedIfTheResponseIsARedirect(): void
     {
-        $next = static fn () => new RedirectResponse('http://localhost', 301);
+        $next = static fn() => new RedirectResponse('http://localhost', 301);
 
         $request = new Request();
 

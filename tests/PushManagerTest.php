@@ -4,6 +4,7 @@ namespace BabDev\ServerPushManager\Tests;
 
 use BabDev\ServerPushManager\PushManager;
 use Fig\Link\Link;
+use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;
 
 final class PushManagerTest extends TestCase
@@ -15,9 +16,7 @@ final class PushManagerTest extends TestCase
         $this->manager = new PushManager();
     }
 
-    /**
-     * @testdox  A Link header for the specified relations as a string is added
-     */
+    #[TestDox('A Link header for the specified relations as a string is added')]
     public function testLinkWithStringRelations(): void
     {
         $this->manager->link('/foo.css', 'preload', ['as' => 'style', 'crossorigin' => true]);
@@ -27,9 +26,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the specified relations as an array is added
-     */
+    #[TestDox('A Link header for the specified relations as an array is added')]
     public function testLinkWithArrayRelations(): void
     {
         $this->manager->link('/foo.css', ['preload', 'prefetch'], ['as' => 'style', 'crossorigin' => true]);
@@ -39,9 +36,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the preload relation is added
-     */
+    #[TestDox('A Link header for the preload relation is added')]
     public function testPreload(): void
     {
         $this->manager->preload('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -51,9 +46,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the dns-prefetch relation is added
-     */
+    #[TestDox('A Link header for the dns-prefetch relation is added')]
     public function testDnsPrefetch(): void
     {
         $this->manager->dnsPrefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -63,9 +56,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the preconnect relation is added
-     */
+    #[TestDox('A Link header for the preconnect relation is added')]
     public function testPreconnect(): void
     {
         $this->manager->preconnect('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -75,9 +66,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the prefetch relation is added
-     */
+    #[TestDox('A Link header for the prefetch relation is added')]
     public function testPrefetch(): void
     {
         $this->manager->prefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -87,9 +76,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values($this->manager->getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the prerender relation is added
-     */
+    #[TestDox('A Link header for the prerender relation is added')]
     public function testPrerender(): void
     {
         $this->manager->prerender('/foo.css', ['as' => 'style', 'crossorigin' => true]);

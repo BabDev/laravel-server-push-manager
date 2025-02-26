@@ -6,6 +6,7 @@ use BabDev\ServerPushManager\Facades\PushManager as PushManagerFacade;
 use BabDev\ServerPushManager\Providers\ServerPushManagerProvider;
 use Fig\Link\Link;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\TestDox;
 
 final class PushManagerTest extends TestCase
 {
@@ -23,9 +24,7 @@ final class PushManagerTest extends TestCase
         ];
     }
 
-    /**
-     * @testdox  A Link header for the specified relations as a string is added
-     */
+    #[TestDox('A Link header for the specified relations as a string is added')]
     public function testLinkWithStringRelations(): void
     {
         \PushManager::link('/foo.css', 'preload', ['as' => 'style', 'crossorigin' => true]);
@@ -35,9 +34,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the specified relations as an array is added
-     */
+    #[TestDox('A Link header for the specified relations as an array is added')]
     public function testLinkWithArrayRelations(): void
     {
         \PushManager::link('/foo.css', ['preload', 'prefetch'], ['as' => 'style', 'crossorigin' => true]);
@@ -47,9 +44,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the preload relation is added
-     */
+    #[TestDox('A Link header for the preload relation is added')]
     public function testPreload(): void
     {
         \PushManager::preload('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -59,9 +54,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the dns-prefetch relation is added
-     */
+    #[TestDox('A Link header for the dns-prefetch relation is added')]
     public function testDnsPrefetch(): void
     {
         \PushManager::dnsPrefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -71,9 +64,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the preconnect relation is added
-     */
+    #[TestDox('A Link header for the preconnect relation is added')]
     public function testPreconnect(): void
     {
         \PushManager::preconnect('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -83,9 +74,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the prefetch relation is added
-     */
+    #[TestDox('A Link header for the prefetch relation is added')]
     public function testPrefetch(): void
     {
         \PushManager::prefetch('/foo.css', ['as' => 'style', 'crossorigin' => true]);
@@ -95,9 +84,7 @@ final class PushManagerTest extends TestCase
         $this->assertEquals([$link], array_values(\PushManager::getLinkProvider()->getLinks()));
     }
 
-    /**
-     * @testdox  A Link header for the prerender relation is added
-     */
+    #[TestDox('A Link header for the prerender relation is added')]
     public function testPrerender(): void
     {
         \PushManager::prerender('/foo.css', ['as' => 'style', 'crossorigin' => true]);

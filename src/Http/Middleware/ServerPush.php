@@ -18,8 +18,7 @@ final class ServerPush
      */
     public function __construct(
         private readonly PushManager $pushManager,
-    ) {
-    }
+    ) {}
 
     /**
      * Handle an incoming request.
