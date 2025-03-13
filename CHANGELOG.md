@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.0 (2025-03-12)
+
+- Add support for Laravel 12
+
 ## 2.3.0 (2024-04-09)
 
 - Add support for Laravel 11
