@@ -2,6 +2,9 @@
 
 [![Latest Stable Version](https://poser.pugx.org/babdev/laravel-server-push-manager/v/stable)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![Latest Unstable Version](https://poser.pugx.org/babdev/laravel-server-push-manager/v/unstable)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![Total Downloads](https://poser.pugx.org/babdev/laravel-server-push-manager/downloads)](https://packagist.org/packages/babdev/laravel-server-push-manager) [![License](https://poser.pugx.org/babdev/laravel-server-push-manager/license)](https://packagist.org/packages/babdev/laravel-server-push-manager) ![Run Tests](https://github.com/BabDev/laravel-server-push-manager/workflows/Run%20Tests/badge.svg?branch=1.x)
 
+> [!CAUTION]
+> This package has been deprecated and is no longer supported.
+
 [Laravel](https://laravel.com) package adding a HTTP/2 server push manager to your Laravel applications.
 
 ## Why Another Package?
